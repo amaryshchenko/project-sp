@@ -153,7 +153,7 @@ Building this lab from the ground up gave me hands-on experience with how enterp
 ## Repository Structure
 
 ```
-homelab-e101/
+project-sp/
 ├── README.md
 ├── screenshots/
 │   ├── network-topology/
