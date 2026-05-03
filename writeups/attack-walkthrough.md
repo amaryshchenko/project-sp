@@ -1,4 +1,4 @@
-# Attack Walkthrough — E101 Cyber Attack Simulation
+# Attack Walkthrough — Cyber Attack Simulation
 
 ## Overview
 
