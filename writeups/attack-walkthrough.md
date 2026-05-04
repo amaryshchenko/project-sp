@@ -5,7 +5,7 @@
 This document walks through the full cyber attack simulation performed against the enterprise homelab environment. The attack follows the **MITRE ATT&CK framework** and progresses from initial reconnaissance to full domain compromise.
 
 **Target Environment:** `10.0.0.0/24` corporate network  
-**Attacker Machine:** Kali Linux (`project-x-attacker`)  
+**Attacker Machine:** Kali Linux (`project-sp-attacker`)  
 **Primary Targets:** Windows workstation, Domain Controller
 
 ---
