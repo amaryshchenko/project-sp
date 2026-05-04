@@ -114,7 +114,7 @@ The full attack walkthrough is in [`writeups/attack-walkthrough.md`](./writeups/
 
 ## Skills Demonstrated
 
-- ✅ Virtualization & Homelab Setup (VirtualBox / VMware)
+- ✅ Virtualization & Homelab Setup (VirtualBox)
 - ✅ Active Directory — Users, Groups, Group Policy, DNS, DHCP
 - ✅ SIEM Deployment & Log Ingestion (Wazuh)
 - ✅ Network Security Monitoring (Security Onion)
