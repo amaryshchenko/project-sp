@@ -42,7 +42,7 @@ This homelab simulates a small enterprise environment consisting of workstations
 | `project-x-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
 | `attacker` | dynamic | Attacker Machine (Kali Linux) |
 
-> 📸 *See `/screenshots/network-topology/` for network diagram screenshots.*
+> 📸 *See `/screenshots/network-topology/project-sp-network-topology.png` for network diagram screenshot.*
 
 ---
 
