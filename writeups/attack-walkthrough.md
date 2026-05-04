@@ -5,7 +5,7 @@
 This document walks through the full cyber attack simulation performed against the enterprise homelab environment. The attack follows the **MITRE ATT&CK framework** and progresses from initial reconnaissance to full domain compromise.
 
 **Target Environment:** `10.0.0.0/24` corporate network  
-**Attacker Machine:** Kali Linux (`project-x-attacker`)  
+**Attacker Machine:** Kali Linux (`project-sp-attacker`)  
 **Primary Targets:** Windows workstation, Domain Controller
 
 ---
@@ -151,12 +151,6 @@ With Administrator credentials and access to the Domain Controller (`10.0.0.5`),
 | WinRM connection established | 60010 | Medium |
 | New admin account activity | 18104 | Medium |
 | Lateral movement via SMB | 18118 | High |
-
-### Security Onion — Network-Level Detections
-
-- Unusual outbound TCP connection on port 4444 (reverse shell C2 traffic)
-- SMB brute force activity
-- RDP login from non-standard source IP
 
 ---
 
