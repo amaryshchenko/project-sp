@@ -34,12 +34,12 @@ This homelab simulates a small enterprise environment consisting of workstations
 
 | Hostname | IP Address | Role |
 |---|---|---|
-| `project-x-dc` | `10.0.0.5` | Domain Controller (AD, DNS, DHCP, SSO) |
-| `project-x-admin` | `10.0.0.8` | Corporate Server |
-| `project-x-sec-box` | `10.0.0.10` | Security Server (Wazuh SIEM) |
-| `project-x-sec-work` | `10.0.0.103` | Security Workstation (Security Onion) |
-| `project-x-win-client` | `10.0.0.100` | Windows Workstation (victim) |
-| `project-x-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
+| `project-sp-dc` | `10.0.0.5` | Domain Controller (AD, DNS, DHCP, SSO) |
+| `project-sp-admin` | `10.0.0.8` | Corporate Server |
+| `project-sp-sec-box` | `10.0.0.10` | Security Server (Wazuh SIEM) |
+| `project-sp-sec-work` | `10.0.0.103` | Security Workstation (Security Onion) |
+| `project-sp-win-client` | `10.0.0.100` | Windows Workstation (victim) |
+| `project-sp-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
 | `attacker` | dynamic | Attacker Machine (Kali Linux) |
 
 > 📸 *See [`/screenshots/network-topology/project-sp-network-topology.png`](./screenshots/network-topology/project-sp-network-topology.png) for network diagram screenshot.*
