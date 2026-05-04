@@ -152,12 +152,6 @@ With Administrator credentials and access to the Domain Controller (`10.0.0.5`),
 | New admin account activity | 18104 | Medium |
 | Lateral movement via SMB | 18118 | High |
 
-### Security Onion — Network-Level Detections
-
-- Unusual outbound TCP connection on port 4444 (reverse shell C2 traffic)
-- SMB brute force activity
-- RDP login from non-standard source IP
-
 ---
 
 ## Lessons Learned
