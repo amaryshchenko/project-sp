@@ -1,5 +1,10 @@
 # 🛡️ Enterprise Homelab — Project SP: From Initial Access to Breached
 
+![Badge](https://img.shields.io/badge/Active%20Directory-Yes-blue)
+![Badge](https://img.shields.io/badge/Wazuh-SIEM-orange)
+![Badge](https://img.shields.io/badge/Red%20Team-Attack-red)
+![Badge](https://img.shields.io/badge/Blue%20Team-Detection-green)
+
 A hands-on cybersecurity homelab simulating a real enterprise network environment. This project covers building a corporate network from scratch, deploying defensive security tools, and executing a full end-to-end cyber attack simulation — covering both **red team (offensive)** and **blue team (defensive)** perspectives.
 
 ---
@@ -35,7 +40,7 @@ This homelab simulates a small enterprise environment consisting of workstations
 | Hostname | IP Address | Role |
 |---|---|---|
 | `project-sp-dc` | `10.0.0.5` | Domain Controller (AD, DNS, DHCP, SSO) |
-| `project-sp-admin` | `10.0.0.8` | Corporate Server |
+| `project-sp-corp-svr` | `10.0.0.8` | Corporate Server |
 | `project-sp-sec-box` | `10.0.0.10` | Security Server (Wazuh SIEM) |
 | `project-sp-sec-work` | `10.0.0.103` | Security Workstation (Security Onion) |
 | `project-sp-win-client` | `10.0.0.100` | Windows Workstation (victim) |
@@ -155,15 +160,25 @@ Building this lab from the ground up gave me hands-on experience with how enterp
 ```
 project-sp/
 ├── README.md
-├── screenshots/
-│   ├── network-topology/
-│   ├── ad-setup/
-│   ├── wazuh-dashboard/
-│   └── attack-simulation/
+│
 ├── configs/
 │   └── wazuh-notes.md
+│
+├── screenshots/
+│   ├── ad-setup/
+│   ├── attack-simulation/
+│   ├── network-topology/
+│   └── phishing/
+│       └── config-phishing-email.png
+│
 ├── scripts/
-│   └── reverse-shell.ps1
+│   ├── phishing-simulation/
+│   │   ├── index.html
+│   │   └── process.php
+│   │
+│   └── reverse-shell/
+│       └── reverse.ps1
+│
 └── writeups/
     └── attack-walkthrough.md
 ```
