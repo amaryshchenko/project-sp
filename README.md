@@ -169,7 +169,6 @@ project-sp/
 │   ├── attack-simulation/
 │   ├── network-topology/
 │   └── phishing/
-│       └── config-phishing-email.png
 │
 ├── scripts/
 │   ├── phishing-simulation/
