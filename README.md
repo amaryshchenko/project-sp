@@ -65,6 +65,7 @@ This homelab simulates a small enterprise environment consisting of workstations
 
 **Hypervisors supported:** VirtualBox · VMware Workstation Pro
 
+> 📸 *See [`/screenshots/network-topology/ALL_VMs.png`](./screenshots/network-topology/ALL_VMs.png) for all Virtual Machines.*
 ---
 
 ## Tools Used
