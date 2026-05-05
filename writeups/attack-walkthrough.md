@@ -29,7 +29,7 @@ Before launching any attack, the attacker maps the entire subnet to discover liv
 nmap -sn 10.0.0.0/24
 ```
 
-![Network ping sweep reveals 7 live hosts across the subnet](screenshots/attack-simulation/service_enumeration_all_ports.png)
+![Network ping sweep reveals 7 live hosts across the subnet](../screenshots/attack-simulation/service_enumeration_all_ports.png)
 
 **Live hosts discovered:** `.1`, `.2`, `.5`, `.8`, `.9`, `.100`, `.101`
 
