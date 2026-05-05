@@ -110,7 +110,6 @@ Inside the corporate server, the attacker discovers MailHog running on SMTP port
 The attacker deploys a fake "Verify Your Password" page on Apache that logs all submitted credentials to `creds.log`:
 
 ```bash
-git clone https://github.com/collinsmc23/projectsecurity-e101
 sudo touch /var/www/html/creds.log && sudo chmod 666 /var/www/html/creds.log
 sudo service apache2 start
 ```
