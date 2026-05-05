@@ -4,16 +4,6 @@
 
 This document walks through the full cyber attack simulation performed against the enterprise homelab environment. The attack follows the **MITRE ATT&CK framework** and progresses from initial reconnaissance through brute force, phishing, lateral movement, data exfiltration, and full domain persistence.
 
-| | |
-|---|---|
-| **Target Network** | `10.0.0.0/24` — Enterprise Homelab |
-| **Attacker Machine** | Kali Linux — `project-sp-attacker` (`10.0.0.9`) |
-| **Corporate Server** | `10.0.0.8` — Ubuntu (SSH, MailHog SMTP) |
-| **Linux Client** | `10.0.0.101` — Jane's Ubuntu Desktop |
-| **Windows Workstation** | `10.0.0.100` — Windows 11 (WinRM 5985) |
-| **Domain Controller** | `10.0.0.5` — Windows Server 2025 (AD, RDP 3389) |
-| **Objective** | Data Exfiltration + Persistent Backdoor Access |
-
 ---
 
 ## Phase 1 — Reconnaissance
