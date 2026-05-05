@@ -45,7 +45,7 @@ This homelab simulates a small enterprise environment consisting of workstations
 | `project-sp-sec-work` | `10.0.0.103` | Security Workstation (Security Onion) |
 | `project-sp-win-client` | `10.0.0.100` | Windows Workstation (victim) |
 | `project-sp-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
-| `attacker` | dynamic | Attacker Machine (Kali Linux) |
+| `project-sp-attacker` | dynamic | Attacker Machine (Kali Linux) |
 
 > 📸 *See [`/screenshots/network-topology/project-sp-network-topology.png`](./screenshots/network-topology/project-sp-network-topology.png) for network diagram screenshot.*
 
