@@ -42,7 +42,6 @@ This homelab simulates a small enterprise environment consisting of workstations
 | `project-sp-dc` | `10.0.0.5` | Domain Controller (AD, DNS, DHCP, SSO) |
 | `project-sp-corp-svr` | `10.0.0.8` | Corporate Server |
 | `project-sp-sec-box` | `10.0.0.10` | Security Server (Wazuh SIEM) |
-| `project-sp-sec-work` | `10.0.0.103` | Security Workstation (Security Onion) |
 | `project-sp-win-client` | `10.0.0.100` | Windows Workstation (victim) |
 | `project-sp-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
 | `project-sp-attacker` | `10.0.0.9` | Attacker Machine (Kali Linux) |
@@ -58,7 +57,6 @@ This homelab simulates a small enterprise environment consisting of workstations
 | project-sp-dc | Windows Server 2025 | 2 vCPU | 4 GB | 50 GB |
 | project-sp-win-client | Windows 11 Enterprise | 2 vCPU | 4 GB | 80 GB |
 | project-sp-linux-client | Ubuntu Desktop 22.04 | 1 vCPU | 2 GB | 80 GB |
-| project-sp-sec-work | Security Onion | 1 vCPU | 2 GB | 55 GB |
 | project-sp-sec-box | Ubuntu Desktop 22.04 | 2 vCPU | 4 GB | 80 GB |
 | project-sp-corp-svr | Ubuntu Server 22.04 | 1 vCPU | 2 GB | 25 GB |
 | project-sp-attacker | Kali Linux 2024.4 | 1 vCPU | 2 GB | 55 GB |
@@ -77,7 +75,6 @@ This homelab simulates a small enterprise environment consisting of workstations
 |---|---|
 | **Microsoft Active Directory** | User/resource management, SSO, Group Policy |
 | **Wazuh** | Open-source SIEM — log ingestion, intrusion detection, alerting |
-| **Security Onion** | Network security monitoring and IDS |
 | **MailHog** | Fake SMTP server for email simulation |
 
 ### 🔴 Offense
@@ -124,7 +121,6 @@ The full attack walkthrough is in [`writeups/attack-walkthrough.md`](./writeups/
 - ✅ Virtualization & Homelab Setup (VirtualBox)
 - ✅ Active Directory — Users, Groups, Group Policy, DNS, DHCP
 - ✅ SIEM Deployment & Log Ingestion (Wazuh)
-- ✅ Network Security Monitoring (Security Onion)
 - ✅ Penetration Testing — Phishing, Brute Force, Post-Exploitation
 - ✅ Lateral Movement Techniques
 - ✅ Privilege Escalation
