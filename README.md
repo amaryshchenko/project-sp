@@ -1,9 +1,11 @@
 # 🛡️ Enterprise Homelab — Project SP: From Initial Access to Breached
 
-![Badge](https://img.shields.io/badge/Active%20Directory-Yes-blue)
-![Badge](https://img.shields.io/badge/Wazuh-SIEM-orange)
 ![Badge](https://img.shields.io/badge/Red%20Team-Attack-red)
-![Badge](https://img.shields.io/badge/Blue%20Team-Detection-green)
+![Badge](https://img.shields.io/badge/Evil%20WinRM-red)
+![Badge](https://img.shields.io/badge/Hydra-red)
+![Badge](https://img.shields.io/badge/Blue%20Team-Detection-blue)
+![Badge](https://img.shields.io/badge/Wazuh-SIEM-blue)
+![Badge](https://img.shields.io/badge/Active%20Directory-blue)
 
 A hands-on cybersecurity homelab simulating a real enterprise network environment. This project covers building a corporate network from scratch, deploying defensive security tools, and executing a full end-to-end cyber attack simulation — covering both **red team (offensive)** and **blue team (defensive)** perspectives.
 
@@ -17,8 +19,9 @@ A hands-on cybersecurity homelab simulating a real enterprise network environmen
 - [Tools Used](#tools-used)
 - [Attack Chain Summary](#attack-chain-summary)
 - [Skills Demonstrated](#skills-demonstrated)
-- [Screenshots](#screenshots)
 - [What I Learned](#what-i-learned)
+- [Screenshots](#screenshots)
+- [Repository Structure](#repository-structure)
 
 ---
 
@@ -42,12 +45,11 @@ This homelab simulates a small enterprise environment consisting of workstations
 | `project-sp-dc` | `10.0.0.5` | Domain Controller (AD, DNS, DHCP, SSO) |
 | `project-sp-corp-svr` | `10.0.0.8` | Corporate Server |
 | `project-sp-sec-box` | `10.0.0.10` | Security Server (Wazuh SIEM) |
-| `project-sp-sec-work` | `10.0.0.103` | Security Workstation (Security Onion) |
 | `project-sp-win-client` | `10.0.0.100` | Windows Workstation (victim) |
 | `project-sp-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
 | `project-sp-attacker` | `10.0.0.9` | Attacker Machine (Kali Linux) |
 
-> 📸 *See [`/screenshots/network-topology/project-sp-network-topology.png`](./screenshots/network-topology/project-sp-network-topology.png) for network diagram screenshot.*
+![Network Topology](/screenshots/network-topology/project-sp-network-topology.png)
 
 ---
 
@@ -58,14 +60,14 @@ This homelab simulates a small enterprise environment consisting of workstations
 | project-sp-dc | Windows Server 2025 | 2 vCPU | 4 GB | 50 GB |
 | project-sp-win-client | Windows 11 Enterprise | 2 vCPU | 4 GB | 80 GB |
 | project-sp-linux-client | Ubuntu Desktop 22.04 | 1 vCPU | 2 GB | 80 GB |
-| project-sp-sec-work | Security Onion | 1 vCPU | 2 GB | 55 GB |
 | project-sp-sec-box | Ubuntu Desktop 22.04 | 2 vCPU | 4 GB | 80 GB |
 | project-sp-corp-svr | Ubuntu Server 22.04 | 1 vCPU | 2 GB | 25 GB |
 | project-sp-attacker | Kali Linux 2024.4 | 1 vCPU | 2 GB | 55 GB |
 
 **Hypervisors supported:** VirtualBox · VMware Workstation Pro
 
-> 📸 *See [`/screenshots/network-topology/ALL_VMs.png`](./screenshots/network-topology/ALL_VMs.png) for all Virtual Machines.*
+![VMs](/screenshots/network-topology/ALL_VMs.png)
+
 ---
 
 ## Tools Used
@@ -76,7 +78,6 @@ This homelab simulates a small enterprise environment consisting of workstations
 |---|---|
 | **Microsoft Active Directory** | User/resource management, SSO, Group Policy |
 | **Wazuh** | Open-source SIEM — log ingestion, intrusion detection, alerting |
-| **Security Onion** | Network security monitoring and IDS |
 | **MailHog** | Fake SMTP server for email simulation |
 
 ### 🔴 Offense
@@ -100,18 +101,18 @@ The full attack walkthrough is in [`writeups/attack-walkthrough.md`](./writeups/
 
 ```
 [1] Reconnaissance
-       ↓
-[2] Phishing — Credential Harvesting Website
-       ↓
-[3] Initial Access — PowerShell Reverse Shell
-       ↓
-[4] Credential Dumping / Brute Force (Hydra)
-       ↓
-[5] Lateral Movement (NetExec, Evil-WinRM)
-       ↓
-[6] Privilege Escalation
-       ↓
-[7] Domain Compromise
+       ↓
+[2] Credential Access (Brute Force)
+       ↓
+[3] Initial Access (Phishing)
+       ↓
+[4] Lateral Movement (Linux to Windows)
+       ↓
+[5] Privilege Escalation (Credential Reuse)
+       ↓
+[6] Data Exfiltration (SCP)
+       ↓
+[7] Domain Persistence (Rogue Admin & Scheduled Task)
 ```
 
 > 📸 *See `/screenshots/attack-simulation/` for step-by-step evidence.*
@@ -123,25 +124,11 @@ The full attack walkthrough is in [`writeups/attack-walkthrough.md`](./writeups/
 - ✅ Virtualization & Homelab Setup (VirtualBox)
 - ✅ Active Directory — Users, Groups, Group Policy, DNS, DHCP
 - ✅ SIEM Deployment & Log Ingestion (Wazuh)
-- ✅ Network Security Monitoring (Security Onion)
 - ✅ Penetration Testing — Phishing, Brute Force, Post-Exploitation
 - ✅ Lateral Movement Techniques
 - ✅ Privilege Escalation
 - ✅ Threat Detection & Alert Analysis
 - ✅ Linux & Windows Server Administration
-
----
-
-## Screenshots
-
-| Folder | Contents |
-|---|---|
-| `screenshots/network-topology/` | Network layout and VM overview |
-| `screenshots/ad-setup/` | Active Directory configuration |
-| `screenshots/wazuh-dashboard/` | SIEM alerts and dashboards |
-| `screenshots/attack-simulation/` | Step-by-step attack evidence |
-
-> 🔒 All credentials shown in screenshots are from an isolated lab environment.
 
 ---
 
@@ -152,7 +139,7 @@ Building this lab from the ground up gave me hands-on experience with how enterp
 - **Active Directory is a prime target** — misconfigured GPOs and weak passwords can lead to full domain compromise
 - **SIEM visibility is critical** — without log ingestion and alerting, most of the attack would have gone undetected
 - **Defense and offense are two sides of the same coin** — understanding how attackers move laterally made me a better defender
-- **Phishing is still the most effective initial access vector** — technical controls alone aren't enough without user awareness
+- **Phishing is still effective initial access vector** — technical controls alone aren't enough without user awareness
 
 ---
 
@@ -160,27 +147,40 @@ Building this lab from the ground up gave me hands-on experience with how enterp
 
 ```
 project-sp/
-├── README.md
-│
 ├── configs/
-│   └── wazuh-notes.md
+│   ├── create_monitors.sh
+│   └── wazuh-notes.md             
 │
 ├── screenshots/
 │   ├── ad-setup/
 │   ├── attack-simulation/
 │   ├── network-topology/
+│   ├── wazuh-dashboard/
 │   └── phishing/
 │
 ├── scripts/
 │   ├── phishing-simulation/
 │   │   ├── index.html
 │   │   └── process.php
-│   │
 │   └── reverse-shell/
 │       └── reverse.ps1
 │
-└── writeups/
-    └── attack-walkthrough.md
+├── writeups/
+│   └── attack-walkthrough.md
+│
+├── README.md
 ```
+
+---
+## Screenshots
+
+| Folder | Contents |
+|---|---|
+| `screenshots/network-topology/` | Network layout and VM overview |
+| `screenshots/ad-setup/` | Active Directory configuration |
+| `screenshots/wazuh-dashboard/` | SIEM alerts and dashboards |
+| `screenshots/attack-simulation/` | Step-by-step attack evidence |
+
+> 🔒 All credentials shown in screenshots are from an isolated lab environment.
 
 ---
