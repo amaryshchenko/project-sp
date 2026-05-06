@@ -1,6 +1,6 @@
 # 🛡️ Enterprise Homelab — Project SP: From Initial Access to Breached
 
-![Badge](https://img.shields.io/badge/Active%20Directory)
+![Badge](https://img.shields.io/badge/Active%20Directory-orange)
 ![Badge](https://img.shields.io/badge/Wazuh-SIEM-blue)
 ![Badge](https://img.shields.io/badge/Red%20Team-Attack-red)
 ![Badge](https://img.shields.io/badge/Blue%20Team-Detection-green)
