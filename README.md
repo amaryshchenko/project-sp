@@ -1,9 +1,9 @@
 # 🛡️ Enterprise Homelab — Project SP: From Initial Access to Breached
 
-![Badge](https://img.shields.io/badge/Active%20Directory-Yes-blue)
-![Badge](https://img.shields.io/badge/Wazuh-SIEM-orange)
+![Badge](https://img.shields.io/badge/Active%20Directory-Yes-green)
+![Badge](https://img.shields.io/badge/Wazuh-SIEM-blue)
 ![Badge](https://img.shields.io/badge/Red%20Team-Attack-red)
-![Badge](https://img.shields.io/badge/Blue%20Team-Detection-green)
+![Badge](https://img.shields.io/badge/Blue%20Team-Detection-blue)
 
 A hands-on cybersecurity homelab simulating a real enterprise network environment. This project covers building a corporate network from scratch, deploying defensive security tools, and executing a full end-to-end cyber attack simulation — covering both **red team (offensive)** and **blue team (defensive)** perspectives.
 
@@ -17,8 +17,9 @@ A hands-on cybersecurity homelab simulating a real enterprise network environmen
 - [Tools Used](#tools-used)
 - [Attack Chain Summary](#attack-chain-summary)
 - [Skills Demonstrated](#skills-demonstrated)
-- [Screenshots](#screenshots)
 - [What I Learned](#what-i-learned)
+- [Screenshots](#screenshots)
+- [Repository Structure](#repository-structure)
 
 ---
 
@@ -144,27 +145,28 @@ Building this lab from the ground up gave me hands-on experience with how enterp
 
 ```
 project-sp/
-├── README.md
-│
 ├── configs/
-│   └── wazuh-notes.md
+│   ├── create_monitors.sh
+│   └── wazuh-notes.md             
 │
 ├── screenshots/
 │   ├── ad-setup/
 │   ├── attack-simulation/
 │   ├── network-topology/
+│   ├── wazuh-dashboard/
 │   └── phishing/
 │
 ├── scripts/
 │   ├── phishing-simulation/
 │   │   ├── index.html
 │   │   └── process.php
-│   │
 │   └── reverse-shell/
 │       └── reverse.ps1
 │
-└── writeups/
-    └── attack-walkthrough.md
+├── writeups/
+│   └── attack-walkthrough.md
+│
+├── README.md
 ```
 
 ---
