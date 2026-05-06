@@ -47,7 +47,6 @@ This homelab simulates a small enterprise environment consisting of workstations
 | `project-sp-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
 | `project-sp-attacker` | `10.0.0.9` | Attacker Machine (Kali Linux) |
 
-> 📸
 ![Network Topology](/screenshots/network-topology/project-sp-network-topology.png)
 
 ---
@@ -102,18 +101,18 @@ The full attack walkthrough is in [`writeups/attack-walkthrough.md`](./writeups/
 
 ```
 [1] Reconnaissance
-       ↓
-[2] Phishing — Credential Harvesting Website
-       ↓
-[3] Initial Access — PowerShell Reverse Shell
-       ↓
-[4] Credential Dumping / Brute Force (Hydra)
-       ↓
-[5] Lateral Movement (NetExec, Evil-WinRM)
-       ↓
-[6] Privilege Escalation
-       ↓
-[7] Domain Compromise
+       ↓
+[2] Credential Access (Brute Force)
+       ↓
+[3] Initial Access (Phishing)
+       ↓
+[4] Lateral Movement (Linux to Windows)
+       ↓
+[5] Privilege Escalation (Credential Reuse)
+       ↓
+[6] Data Exfiltration (SCP)
+       ↓
+[7] Domain Persistence (Rogue Admin & Scheduled Task)
 ```
 
 > 📸 *See `/screenshots/attack-simulation/` for step-by-step evidence.*
@@ -131,19 +130,6 @@ The full attack walkthrough is in [`writeups/attack-walkthrough.md`](./writeups/
 - ✅ Privilege Escalation
 - ✅ Threat Detection & Alert Analysis
 - ✅ Linux & Windows Server Administration
-
----
-
-## Screenshots
-
-| Folder | Contents |
-|---|---|
-| `screenshots/network-topology/` | Network layout and VM overview |
-| `screenshots/ad-setup/` | Active Directory configuration |
-| `screenshots/wazuh-dashboard/` | SIEM alerts and dashboards |
-| `screenshots/attack-simulation/` | Step-by-step attack evidence |
-
-> 🔒 All credentials shown in screenshots are from an isolated lab environment.
 
 ---
 
@@ -184,5 +170,17 @@ project-sp/
 └── writeups/
     └── attack-walkthrough.md
 ```
+
+---
+## Screenshots
+
+| Folder | Contents |
+|---|---|
+| `screenshots/network-topology/` | Network layout and VM overview |
+| `screenshots/ad-setup/` | Active Directory configuration |
+| `screenshots/wazuh-dashboard/` | SIEM alerts and dashboards |
+| `screenshots/attack-simulation/` | Step-by-step attack evidence |
+
+> 🔒 All credentials shown in screenshots are from an isolated lab environment.
 
 ---
