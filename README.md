@@ -47,7 +47,8 @@ This homelab simulates a small enterprise environment consisting of workstations
 | `project-sp-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
 | `project-sp-attacker` | `10.0.0.9` | Attacker Machine (Kali Linux) |
 
-> 📸 *See [`/screenshots/network-topology/project-sp-network-topology.png`](./screenshots/network-topology/project-sp-network-topology.png) for network diagram screenshot.*
+> 📸
+![Network Topology](../screenshots/network-topology/project-sp-network-topology.png)
 
 ---
 
@@ -65,7 +66,8 @@ This homelab simulates a small enterprise environment consisting of workstations
 
 **Hypervisors supported:** VirtualBox · VMware Workstation Pro
 
-> 📸 *See [`/screenshots/network-topology/ALL_VMs.png`](./screenshots/network-topology/ALL_VMs.png) for all Virtual Machines.*
+![VMs](../screenshots/network-topology/ALL_VMs.png)
+
 ---
 
 ## Tools Used
@@ -152,7 +154,7 @@ Building this lab from the ground up gave me hands-on experience with how enterp
 - **Active Directory is a prime target** — misconfigured GPOs and weak passwords can lead to full domain compromise
 - **SIEM visibility is critical** — without log ingestion and alerting, most of the attack would have gone undetected
 - **Defense and offense are two sides of the same coin** — understanding how attackers move laterally made me a better defender
-- **Phishing is still the most effective initial access vector** — technical controls alone aren't enough without user awareness
+- **Phishing is still effective initial access vector** — technical controls alone aren't enough without user awareness
 
 ---
 
