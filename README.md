@@ -48,7 +48,7 @@ This homelab simulates a small enterprise environment consisting of workstations
 | `project-sp-attacker` | `10.0.0.9` | Attacker Machine (Kali Linux) |
 
 > 📸
-![Network Topology](../screenshots/network-topology/project-sp-network-topology.png)
+![Network Topology](/screenshots/network-topology/project-sp-network-topology.png)
 
 ---
 
@@ -66,7 +66,7 @@ This homelab simulates a small enterprise environment consisting of workstations
 
 **Hypervisors supported:** VirtualBox · VMware Workstation Pro
 
-![VMs](../screenshots/network-topology/ALL_VMs.png)
+![VMs](/screenshots/network-topology/ALL_VMs.png)
 
 ---
 
