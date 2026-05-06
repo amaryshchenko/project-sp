@@ -3,7 +3,7 @@
 ![Badge](https://img.shields.io/badge/Active%20Directory-Yes-green)
 ![Badge](https://img.shields.io/badge/Wazuh-SIEM-blue)
 ![Badge](https://img.shields.io/badge/Red%20Team-Attack-red)
-![Badge](https://img.shields.io/badge/Blue%20Team-Detection-blue)
+![Badge](https://img.shields.io/badge/Blue%20Team-Detection)
 
 A hands-on cybersecurity homelab simulating a real enterprise network environment. This project covers building a corporate network from scratch, deploying defensive security tools, and executing a full end-to-end cyber attack simulation — covering both **red team (offensive)** and **blue team (defensive)** perspectives.
 
