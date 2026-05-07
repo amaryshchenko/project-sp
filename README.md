@@ -13,15 +13,6 @@ A hands-on cybersecurity homelab simulating a real enterprise network environmen
 
 ---
 
-## 🧪 Experimental: Slack + Splunk Integration
-
-> I've also been experimenting with an alternative alerting setup — integrating Splunk with Slack for real-time security notifications. Still playing around with the look and feel of this one.
-
-![Slack + Splunk Integration Preview](/screenshots/slack-splunk-integretion/experimental.gif)
-
-*This is a work-in-progress experiment — may or may not make it into the final stack.*
----
-
 ## 📋 Table of Contents
 
 - [Project Overview](#project-overview)
@@ -44,6 +35,15 @@ This homelab simulates a small enterprise environment consisting of workstations
 2. Deploy enterprise-grade defensive tools (SIEM, IDS)
 3. Execute a cyber attack from initial access to full compromise
 4. Detect and analyze the attack using the security stack
+---
+
+## 🧪 Experimental: Slack + Splunk Integration
+
+> I've also been experimenting with an alternative alerting setup — integrating Splunk with Slack for real-time security notifications. Still playing around with the look and feel of this one.
+
+![Slack + Splunk Integration Preview](/screenshots/slack-splunk-integretion/experimental.gif)
+
+*This is a work-in-progress experiment — may or may not make it into the final stack.*
 
 ---
 
