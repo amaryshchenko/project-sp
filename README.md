@@ -9,6 +9,7 @@
 
 A hands-on cybersecurity homelab simulating a real enterprise network environment. This project covers building a corporate network from scratch, deploying defensive security tools, and executing a full end-to-end cyber attack simulation — covering both **red team (offensive)** and **blue team (defensive)** perspectives.
 
+![Network Topology](/screenshots/network-topology/project-sp-network-topology.png)
 ---
 
 ## 📋 Table of Contents
@@ -33,8 +34,6 @@ This homelab simulates a small enterprise environment consisting of workstations
 2. Deploy enterprise-grade defensive tools (SIEM, IDS)
 3. Execute a cyber attack from initial access to full compromise
 4. Detect and analyze the attack using the security stack
-
-![Network Topology](/screenshots/network-topology/project-sp-network-topology.png)
 
 ---
 
