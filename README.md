@@ -9,6 +9,7 @@
 
 A hands-on cybersecurity homelab simulating a real enterprise network environment. This project covers building a corporate network from scratch, deploying defensive security tools, and executing a full end-to-end cyber attack simulation — covering both **red team (offensive)** and **blue team (defensive)** perspectives.
 
+![Network Topology](/screenshots/network-topology/project-sp-network-topology.png)
 ---
 
 ## 📋 Table of Contents
@@ -48,8 +49,6 @@ This homelab simulates a small enterprise environment consisting of workstations
 | `project-sp-win-client` | `10.0.0.100` | Windows Workstation (victim) |
 | `project-sp-linux-client` | `10.0.0.101` | Linux Desktop Workstation (victim) |
 | `project-sp-attacker` | `10.0.0.9` | Attacker Machine (Kali Linux) |
-
-![Network Topology](/screenshots/network-topology/project-sp-network-topology.png)
 
 ---
 
