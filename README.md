@@ -35,16 +35,7 @@ This homelab simulates a small enterprise environment consisting of workstations
 2. Deploy enterprise-grade defensive tools (SIEM, IDS)
 3. Execute a cyber attack from initial access to full compromise
 4. Detect and analyze the attack using the security stack
----
-
-## 🧪 Experimental: Slack + Splunk Integration
-
-> I've also been experimenting with an alternative alerting setup — integrating Splunk with Slack for real-time security notifications. Still playing around with the look and feel of this one.
-
-![Slack + Splunk Integration Preview](/screenshots/slack-splunk-integretion/experimental.gif)
-
-*This is a work-in-progress experiment — may or may not make it into the final stack.*
-
+5. 
 ---
 
 ## Network Topology
@@ -149,6 +140,15 @@ Building this lab from the ground up gave me hands-on experience with how enterp
 - **SIEM visibility is critical** — without log ingestion and alerting, most of the attack would have gone undetected
 - **Defense and offense are two sides of the same coin** — understanding how attackers move laterally made me a better defender
 - **Phishing is still effective initial access vector** — technical controls alone aren't enough without user awareness
+---
+
+## 🧪 Experimental: Slack + Splunk Integration
+
+> I've also been experimenting with an alternative alerting setup — integrating Splunk with Slack for real-time security notifications. Still playing around with the look and feel of this one.
+
+![Slack + Splunk Integration Preview](/screenshots/slack-splunk-integretion/experimental.gif)
+
+*This is a work-in-progress experiment — may or may not make it into the final stack.*
 
 ---
 
