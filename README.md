@@ -17,7 +17,7 @@ A hands-on cybersecurity homelab simulating a real enterprise network environmen
 
 > I've also been experimenting with an alternative alerting setup — integrating Splunk with Slack for real-time security notifications. Still playing around with the look and feel of this one.
 
-![Slack + Splunk Integration Preview](screenshots/slack-splunk-integration/experimental.gif)
+![Slack + Splunk Integration Preview](/screenshots/slack-splunk-integretion/experimental.gif)
 
 *This is a work-in-progress experiment — may or may not make it into the final stack.*
 ---
