@@ -35,7 +35,6 @@ This homelab simulates a small enterprise environment consisting of workstations
 2. Deploy enterprise-grade defensive tools (SIEM, IDS)
 3. Execute a cyber attack from initial access to full compromise
 4. Detect and analyze the attack using the security stack
-5. 
 ---
 
 ## Network Topology
